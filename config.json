@@ -1,0 +1,5959 @@
+{
+	"title": "LiGeA: a comprehensive database of human gene fusion events",
+	"title_short": "LiGeA",
+	"description": "LiGeA (cancer cell LInes GEne fusions portAl) provides an easy access to a comprehensive database designed for storing, displaying and annotating Human Cell Line-specific gene fusion events detected from RNA-seq data.",
+	"license": "<a rel=\"license\" href=\"https://opensource.org/licenses/GPL-3.0\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"https://opensource.org/files/osi_keyhole_300X300_90ppi_0.png\" width=\"80px\"/></a><br />This work is licensed under a <a rel=\"license\" href=\"https://opensource.org/licenses/GPL-3.0\">https://opensource.org/licenses/GPL-3.0</a>.",
+	"analytics_tracking_ID": "UA-107089466-1",
+	"meta": [{
+			"key": "robots",
+			"value": "noindex"
+		},
+		{
+			"key": "description",
+			"value": "LiGeA (cancer cell LInes GEne fusions portAl) provides an easy access to a comprehensive database designed for storing, displaying and annotating Human Cell Line-specific gene fusion events detected from RNA-seq data."
+		}
+	],
+	"footer": "",
+	"image": {
+		"src": "imgs/ligea_logo1.png",
+		"percentage_width": "200"
+	},
+	"login": false,
+	"logos": [{
+			"image": "imgs/logo_negri.png"
+		},
+		{
+			"image": "http://www.procedamus.it/images/CINECA.jpg"
+		},
+		{
+			"image": "imgs/dipartimento_informatica_logo.jpg"
+		}
+	],
+	"menu": [{
+			"name": "Home",
+			"url": "main"
+		}, {
+			"name": "Search",
+			"items": [{
+					"name": "Search by Disease",
+					"url": "search_for_disease"
+				},
+				{
+					"name": "Search by Cell line",
+					"url": "search_for_cell_line"
+				},
+				{
+					"name": "Search by Chromosome",
+					"url": "search_for_chromosome"
+				}, {
+					"name": "Search by Gene",
+					"url": "search_for_gene"
+				}, {
+					"name": "Search by Transcript",
+					"url": "search_for_transcript"
+				}, {
+					"name": "Search by Exon",
+					"url": "search_for_exon"
+				}, {
+					"name": "Search by Fusion information",
+					"url": "search_for_fusion"
+				}, {
+					"name": "Search by Algorithm",
+					"url": "search_for_algorithm"
+				}, {
+					"name": "Search Viruses",
+					"url": "search_for_viruses"
+				}
+			]
+		}, {
+			"name": "Statistics",
+			"items": [{
+				"name": "Cell line statistics",
+				"url": "statistics_by_cell_line"
+			}, {
+				"name": "Chromosome statistics",
+				"url": "statistics_by_chromosome"
+			}, {
+				"name": "Disease statistics",
+				"url": "disease_statistics"
+			}, {
+				"name": "Gene statistics",
+				"url": "gene_statistics"
+			}, {
+				"name": "Database statistics",
+				"url": "db_statistics"
+			}]
+		}, {
+			"name": "Dataset",
+			"items": [
+				{
+					"name": "Dataset statistics",
+					"url": "dataset"
+				},
+				{
+					"name": "Cell line information",
+					"url": "cell_line_information"
+				}
+			]
+		}, {
+			"name": "Downloads",
+			"url": "downloads"
+		}, {
+			"name": "Contact",
+			"url": "contact"
+		},
+		{
+			"name": "Help",
+			"url": "help"
+		}
+	],
+	"pages": [
+		{
+			"pageID": "cell_line",
+			"title": "Cell line",
+			"subtitle": "Statistics and information about this cell line.",
+			"elements":
+			[
+				[
+					{
+						"width": "100",
+						"elements": [
+							{
+								"type": "image",
+								"data": {
+									"width": "100%",
+									"margin": "auto",
+									"url": "imgs/ccle-logo.png"
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "General information",
+						"subtitle": "Here you find general information about this specific cell line such as the human malignancy it was originated from and the identity of the viruses predicted to be integrated in its genome. This latter information is predicted by FusionCatcher algorithm.",
+						"width": "50",
+						"elements": [
+							{
+								"type": "table",
+								"data": {
+									"url": "/fusion_api/fusion/cell_line_info/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "PARAM/1"
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Side info",
+						"width": "50",
+						"elements": [
+							{
+								"type": "table",
+								"data": {
+									"url": "/fusion_api/fusion/cell_line_minor_info/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "PARAM/1"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Fusion gene info",
+						"subtitle": "This word cloud reports the fusion gene couples which are most likely involved within this cell line. The character size is linked to the number of algorithms supporting a particular gene fusion event: the greater it is, the more algorithms agree on that particular prediction.",
+						"width": "50",
+						"elements": [
+							{
+								"type": "cloud",
+								"width": "400",
+								"height": "400",
+								"steps": "4",
+								"data": {
+									"url": "/fusion_api/fusion/gene_couples/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "PARAM/1"
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Chromosome info",
+						"subtitle": "Chromosome-based information about fusion events (each bar reports the number of fusion events for a given chromosome for this cell line)",
+						"width": "50",
+						"elements": [
+							{
+								"type": "chart-bar",
+								"data": {
+									"url": "/fusion_api/fusion/cell_line_chromosome_info/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "PARAM/1"
+										}
+									]
+								}
+							}
+						]
+					}
+					
+				]
+			]
+		},
+		{
+			"pageID": "fusion_event",
+			"title": "Fusion event",
+			"subtitle": "Statistics and information about this fusion event.",
+			"elements":
+			[
+				[
+					{
+						"title": "General information",
+						"subtitle": "Here you find general information about this fusion event",
+						"width": "50",
+						"elements": [
+							{
+								"type": "table",
+								"data": {
+									"url": "/fusion_api/fusion/fusion_event_info/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "PARAM/1"
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Additional information",
+						"width": "50",
+						"elements": [
+							{
+								"type": "table",
+								"data": {
+									"url": "/fusion_api/fusion/fusion_event_minor_info/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "PARAM/1"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Link to external databases",
+						"width": "50",
+						"elements": [
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "table",
+								"data": {
+									"url": "/fusion_api/fusion/fusion_event_link/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "PARAM/1"
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Fusion gene information",
+						"width": "50",
+						"elements": [
+							{
+								"type": "table",
+								"data": {
+									"url": "/fusion_api/fusion/fusion_event_genes_info/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "PARAM/1"
+										}
+									]
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "main",
+			"title": "Home",
+			"long_description": "LiGeA Portal is an integrated resource which allows to query a database of somatic fusion genes events predicted and annotated starting from paired-end RNA-seq data. Data have been analysed using four fusion detection algorithms: FusionCatcher, EricScript,Tophat-Fusion and JAFFA. The bioinformatics analysis has been carried out on 935 tumor cell lines obtained from The Cancer Cell Line Encyclopedia (CCLE) repository (<a href='https://portals.broadinstitute.org/ccle/home'>https://portals.broadinstitute.org/ccle/home</a>) using hg38 as reference genome. The obtained results can represent a valuable source of information of both known and novel gene fusion events in the catalog of all of the human malignant cell lines, thus hinting the fusion candidates most suitable for downstream analysis and validation. Indeed, not only LiGeA is linked to external topic-related databases, but the results are prioritized by a score of oncogenicity and a colorful signature indicates whether a fusion gene is known or novel. LiGeA portal gives access to the outputs for each source algorithm and, whenever the fusion genes predictions coincide for two or more methods, the intersection is shown in order to provide more reliable results.",
+			"elements": [
+				[
+					{
+						"title": "Cell line summary",
+						"subtitle": "See detailed information about your cell lines of interest",
+						"width": "40",
+						"elements": [
+							{
+								"type": "image",
+								"data": {"url": "imgs/cell-icon.png"} 
+							},
+							{
+								"type": "autocomplete",
+								"subtype": "form",
+								"data": {
+									"value": "Detroit562",
+									"label": "Select a cell line",
+									"url": "/fusion_api/fusion/cell_lines_simple/",
+									"onChange": {
+										"key": "cell_line",
+										"action": "write",
+										"field": "id"
+									}
+								}
+							},
+							{
+								"type": "button",
+								"label": "See",
+								"action": "link",
+								"data": {
+									"url": "cell_line/CELL_LINE/",
+									"templates": [
+										{
+											"template": "CELL_LINE",
+											"key": "cell_line"
+										}
+									]
+							}
+						}]
+					},
+					{
+						"title": "Fusion events examples",
+						"width": "60%",
+						"elements": [
+							{
+								"type": "button",
+								"label": "See PML/RARA fusion event in NB4 cell line",
+								"action": "link",
+								"data": {
+									"image": "imgs/fusionevent-icon.png",
+									"height": "25px",
+									"icon": "fa-external-link",
+									"url": "fusion_event/fus_146186/"
+								}
+							},
+							{
+								"type": "button",
+								"label": "See BCR/ABL1 fusion event in SUPB15 cell line",
+								"action": "link",
+								"data": {
+									"image": "imgs/fusionevent-icon.png",
+									"height": "25px",
+									"icon": "fa-external-link",
+									"url": "fusion_event/fus_96528/"
+								}
+							},
+							{
+								"type": "button",
+								"label": "See FGFR3/TACC3 fusion event in RT4 cell line",
+								"action": "link",
+								"data": {
+									"image": "imgs/fusionevent-icon.png",
+									"height": "25px",
+									"icon": "fa-external-link",
+									"url": "fusion_event/fus_286538/"
+								}
+							}
+						]
+					}
+				],
+				[{
+						"title": "Global summary",
+						"width": "30",
+						"elements": [{
+							"type": "two-column-table",
+							"data": {
+								"url": "/fusion_api/fusion/statistics_all/"
+							}
+						}]
+					},
+					{
+						"title": "Distribution across top 50 cell lines showing the highest number of fusion events",
+						"width": "70",
+						"elements": [{
+							"type": "chart-bar",
+							"data": {
+								"url": "/fusion_api/fusion/get_distribution/CellLine/FusionCell/50/DESC/"
+							}
+						}]
+					}
+				],
+				[{
+						"title": "Venn diagram",
+						"width": "60",
+						"elements": [{
+								"type": "paragraph",
+								"data": {
+									"value": "Please select one or more algorithms. The table reported beside dinamically updates showing the amount of their intersection."
+								}
+							},
+							{
+								"type": "checkbox",
+								"inline": true,
+								"subtype": "form",
+								"label": "Algorithms",
+								"data": {
+									"values": [{"label": "FusionCatcher", "checked": true}, {"label": "EricScript", "checked": true}, {"label": "Tophat-Fusion", "checked": true}, {"label": "Jaffa", "checked": true}],
+									"multiple": true,
+									"onClick": [{
+										"action": "write",
+										"key": "algorithms"
+									}]
+								}
+							},
+							{
+								"type": "image",
+								"data": {
+									"width": "100%",
+									"url": "/fusion_api/fusion/algorithms_statistics_image/ALGORITHMS/",
+									"templates": [{
+										"template": "ALGORITHMS",
+										"key": "algorithms",
+										"target": "url"
+									}],
+									"onReceive": [{
+										"action": "write",
+										"target": "image_url"
+									}]
+								}
+							}
+						]
+					},
+					{
+						"title": "Number of predicted Gene Fusion Events",
+						"width": "40",
+						"elements": [{
+							"type": "two-column-table",
+							"data": {
+							    "value": "Please refer to the predicted Gene Fusion Events as the entity constituted by the gene fusion couple in a specific cell line. This table reports the details for each algorithm and the amount of the intersection.",
+								"url": "/fusion_api/fusion/algorithms_statistics/ALGORITHMS/",
+								"templates": [{
+									"template": "ALGORITHMS",
+									"key": "algorithms"
+								}]
+							}
+						}]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "dataset",
+			"title": "Dataset",
+			"long_description": "This is a description of the input dataset, composed of 935 paired-end RNA-seq raw files downloaded from The Cancer Cell Line Encyclopedia (CCLE) repository (<a target='_blank' href='https://portals.broadinstitute.org/ccle/home'>https://portals.broadinstitute.org/ccle/home</a>). The histogram shows the number of cell lines aggregated for being derived from the same human pathological condition.",
+			"elements": [
+				[{
+					"title": "Distribution of diseases across cell lines",
+					"width": "100",
+					"elements": [{
+						"type": "chart-bar",
+						"data": {
+							"url": "/fusion_api/fusion/get_distribution/Disease/CellLine/100/DESC/"
+						}
+					}]
+				}]
+			]
+		},
+		{
+			"pageID": "cell_line_information",
+			"title": "Cell line information",
+			"elements": [
+				[
+					{
+						"title": "Cell line summary",
+						"subtitle": "Select your cell line of interest",
+						"width": "50",
+						"elements": [
+							{
+								"type": "image",
+								"data": {"url": "imgs/cell-icon.png"} 
+							},
+							{
+								"type": "autocomplete",
+								"subtype": "form",
+								"value": "Detroit562",
+								"data": {
+									"label": "Select a cell line",
+									"url": "/fusion_api/fusion/cell_lines_simple/",
+									"onChange": {
+										"key": "cell_line",
+										"action": "write",
+										"field": "id"
+									}
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "General information",
+						"subtitle": "Here you find general information about this specific cell line such as the human malignancy it was originated from and the identity of the viruses predicted to be integrated in its genome. This latter information is predicted by FusionCatcher algorithm.",
+						"width": "50",
+						"elements": [
+							{
+								"type": "table",
+								"data": {
+									"url": "/fusion_api/fusion/cell_line_info/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "cell_line"
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Side info",
+						"width": "50",
+						"elements": [
+							{
+								"type": "table",
+								"data": {
+									"url": "/fusion_api/fusion/cell_line_minor_info/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "cell_line"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Fusion gene info",
+						"subtitle": "This word cloud reports the fusion gene couples which are most likely involved within this cell line. The character size is linked to the number of algorithms supporting a particular gene fusion event: the greater it is, the more algorithms agree on that particular prediction.",
+						"width": "50",
+						"elements": [
+							{
+								"type": "cloud",
+								"width": "400",
+								"height": "400",
+								"steps": "7",
+								"data": {
+									"url": "/fusion_api/fusion/gene_couples/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "cell_line"
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Chromosome info",
+						"subtitle": "Chromosome-based information about fusion events (each bar reports the number of fusion events for a given chromosome for this cell line)",
+						"width": "50",
+						"elements": [
+							{
+								"type": "chart-bar",
+								"data": {
+									"url": "/fusion_api/fusion/cell_line_chromosome_info/PARAM1/",
+									"templates": [
+										{
+											"template": "PARAM1",
+											"key": "cell_line"
+										}
+									]
+								}
+							}
+						]
+					}
+					
+				]
+			]
+		},
+		{
+			"pageID": "statistics_by_cell_line",
+			"title": "Statistics by cell line",
+			"long_description": "In this tab you can choose the Cell Line of interest and have a graphical summary of the fusion gene couples supported by at least two algorithms. The resulting panel on the left is a circular layout showing the couples of the chromosomes involved in the fusions and the table on the right reports the names of the fused genes.",
+			"elements": [
+				[{
+						"width": "50",
+						"title": "Fusion events for cell line",
+						"elements": [{
+								"type": "icon",
+								"data": {
+									"icon": "fa-info-circle",
+									"color": "orange",
+									"modifiers": "fa-2x",
+									"title": "True positive"
+								}
+							},
+							{
+								"type": "paragraph",
+								"data": {
+									"value": "Ticks in the plot correspond to about 30 million bases"
+								},
+								"inline": "true"
+							},
+							{
+								"type": "divider"
+							},
+							{
+								"type": "paragraph",
+								"inline": "true",
+								"data": {
+									"value": "Cell line: "
+								}
+							},
+							{
+								"type": "autocomplete",
+								"subtype": "form",
+								"data": {
+									"label": "Select a cell line",
+									"url": "/fusion_api/fusion/cell_lines_simple/",
+									"key": "cell_line",
+									"value": "647V",
+									"onChange": {
+										"key": "cell_line",
+										"action": "write"
+									}
+								}
+							},
+							{
+								"type": "circos",
+								"data": {
+									"url": "/fusion_api/fusion/cell_line_events/CELL_LINE/",
+									"templates": [{
+										"template": "CELL_LINE",
+										"key": "cell_line"
+									}],
+									"value": "CCLE_001",
+									"hide_names": true,
+									"radius": "130",
+									"inner_radius": "130",
+									"outer_radius": "160",
+									"width": "400",
+									"height": "400"
+								}
+							}
+						]
+					},
+					{
+						"width": "50",
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "Fusion events for selected cell line (CELL_LINE) with at least 2 supporting algorithms",
+									"templates": [
+										{
+											"template": "CELL_LINE",
+											"key": "cell_line"
+										}
+									]
+								}
+							},
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "Total fusion events: TOTAL",
+									"templates": [{
+											"template": "TOTAL",
+											"key": "total_fusions"
+										}
+									]
+								}
+							},
+							{
+								"type": "table",
+								"data": {
+									"url": "/fusion_api/fusion/cell_line_events_simple/CELL_LINE/",
+									"onFinish": [{
+										"key": "total_fusions",
+										"property": "length"
+									}],
+									"templates": [{
+										"template": "CELL_LINE",
+										"key": "cell_line"
+									}],
+									"value": "CCLE_001"
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "statistics_by_chromosome",
+			"title": "Statistics by chromosome",
+			"long_description": "On the left, a dynamical pie-chart showing the number of per chromosome gene fusion events (GFE); by clicking on each slice of the pie, the summary table on the right automatically updates.",
+			"elements": [
+				[{
+						"title": "Per chromosome Gene Fusion Events (GFE)",
+						"subtitle": "Distribution of fusion events per chromosome normalized by the length of the chromosome.",
+						"width": "100",
+						"elements": [{
+							"type": "chart-pie",
+							"data": {
+								"url": "/fusion_api/fusion/get_distribution/Chromosome/FusionCellRatio/",
+								"options": {
+									"legend": {
+										"show": true,
+										"position": "bottom"
+									}
+								},
+								"onClick": [{
+									"action": "write",
+									"key": "chromosome"
+								}]
+							}
+						}]
+					}
+				],
+				[
+					{
+						"title": "Summary for chromosome",
+						"width": "50",
+						"elements": [
+							{
+								"type": "paragraph",
+								"inline": "true",
+								"data": {
+									"variable_value": "<b>Chosen chromosome</b>: chr CHROMOSOME",
+									"templates": [
+										{
+											"template": "CHROMOSOME",
+											"key": "chromosome",
+											"value": "1"
+										}
+									] 
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "two-column-table",
+								"data": {
+									"url": "/fusion_api/fusion/get_single_distribution/Chromosome/CHROMOSOME",
+									"templates": [{
+										"template": "CHROMOSOME",
+										"key": "chromosome"
+									}],
+									"value": "1"
+								}
+							}
+						]
+					},
+					{
+						"title": "Chromosomal rearrangements",
+						"width": "50",
+						"elements": [{
+							"type": "table",
+							"alignment": "left",
+							"data": {
+								"url": "/fusion_api/fusion/get_descriptions_statistics/"
+							}
+						}]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "disease_statistics",
+			"title": "Disease statistics",
+			"elements": [
+				[{
+						"title": "Per disease Gene Fusion Events (GFE)",
+						"width": "70",
+						"subtitle": "In this panel, the cell lines derived from the same disease have been grouped together. The resulting pie-chart shows the total number of fusion events normalized for a specific disease.",
+						"elements": [{
+							"type": "chart-pie",
+							"data": {
+								"options": {
+									"legend": {
+										"show": true,
+										"position": "top",
+										"fontSize": 10
+									}
+								},
+								"url": "/fusion_api/fusion/get_fusion_by_disease/",
+								"onClick": [{
+									"action": "write",
+									"key": "disease"
+								}]
+							}
+						}]
+					},
+					{
+						"title": "Summary for selected disease",
+						"width": "30",
+						"elements": [
+							{
+								"type": "image",
+								"data": {
+									"url": "imgs/disease-icon.png"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "paragraph",
+								"inline": "true",
+								"data": {
+									"variable_value": "<b>Chosen disease</b>: DISEASE",
+									"templates": [
+										{
+											"template": "DISEASE",
+											"key": "disease",
+											"value": "UCEC"
+										}
+									]
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "two-column-table",
+								"data": {
+									"url": "/fusion_api/fusion/get_single_distribution/Disease/DISEASE",
+									"templates": [{
+										"template": "DISEASE",
+										"key": "disease"
+									}]
+								}
+							}
+						]
+					}
+				],
+				[{
+					"title": "Per disease virus statistics",
+					"subtitle": "In this panel, the cell lines derived from the same disease have been grouped together. The resulting histogram shows the total number of viruses involved in a specific disease.",
+					"elements": [{
+						"type": "chart-bar",
+						"data": {
+							"url": "/fusion_api/fusion/get_distribution_virus_by_disease/"
+						}
+					}]
+				}]
+			]
+		},
+		{
+			"pageID": "gene_statistics",
+			"title": "Gene statistics",
+			"elements": [
+				[{
+					"title": "Gene pairs statistics",
+					"subtitle": "This word cloud shows the most commonly fusion pairs found in the whole database. Size of the gene pairs is proportional to the number of cell lines involved.",
+					"elements": [{
+						"type": "cloud",
+						"width": "600",
+						"height": "600",
+						"steps": "7",
+						"data": {
+							"url": "/fusion_api/fusion/pairs_by_events/"
+						}
+					}]
+				}]
+			]
+		},
+		{
+			"pageID": "db_statistics",
+			"title": "Database statistics",
+			"elements": [
+				[{
+					"title": "Characterization of predicted Gene Fusion Events (pGFEs) by their annotation",
+					"subtitle": "Only events supported by all the four algorithms are considered - Consensus Call Set (CCS). 47% (purple) of the CCS has not been previously described in any other database or scientific publication; 6.7% (red) and 12% (green) of the CCS have been reported in databases from healthy/tumoral samples thus representing the portion of false and true positive subset of our analysis; 1% of the CCS (orange) reports tags which classify the pGFE as a false positive couple with medium probability; 32% (grey) of the results represent novel pGFEs tagged with values which classify them as both false and true positives.",
+					"width": "50",
+					"elements": [{
+						"type": "chart-pie",
+						"data": {
+							"options": {
+								"legend": {
+									"show": true,
+									"position": "bottom"
+								}
+							},
+							"url": "/fusion_api/fusion/get_event_map/"
+						}
+					}]
+				}],
+				[{
+					"title": "Intersection of our database with existing databases",
+					"subtitle": "This information is available only for FusionCatcher's and JAFFA's predicted gene fusion events",
+					"width": "100",
+					"elements": [{
+							"type": "paragraph",
+							"data": {
+								"value": "Please select one or more databases:"
+							}
+						},
+						{
+							"type": "checkbox",
+							"subtype": "form",
+							"inline": true,
+							"label": "Databases",
+							"data": {
+								"values": [
+									{"id": "mitelman", "label": "<img width='80px' src='imgs/mitelman_logo.png' alt='mitelman'>", "checked": true},
+									{"id": "chimerdb2", "label": "<img width='80px' src='imgs/chimerdb.logo.png' alt='chimerdb'>", "checked": true},
+									{"id": "cosmic", "label": "<img flex flex-align='center center' width='50px' src='imgs/cosmic-icon.png' alt='cosmic'><br/><span>Cosmic</span>", "checked": true},
+									{"id": "tcga", "label": "<img width='80px' src='http://ciriellolab.org/images/tcga_logo.gif' alt='tcga'>", "checked": true},
+									{"id": "gtex", "label": "<img width='50px' src='http://phoenixrising.me/wp-content/uploads/gtex.jpg' alt='gtex'>", "checked": true},
+									{"id": "oncogene", "label": "oncogene", "checked": true},
+									{"id": "ticdb", "label": "<img width='80px' src='http://www.unav.es/genetica/logo.jpg' alt='ticdb'>", "checked": true}
+								],
+								"multiple": true,
+								"onClick": [{
+									"action": "write",
+									"key": "databases"
+								}]
+							}
+						},
+						{
+							"type": "venn",
+							"data": {
+								"url": "/fusion_api/fusion/get_external_database_statistics/DATABASES/false/",
+								"templates": [{
+									"template": "DATABASES",
+									"key": "databases"
+								}]
+							}
+						}
+					]
+				}],
+				[{
+					"title": "Number of fusion events contained in known databases",
+					"subtitle": "This information is available only for FusionCatcher's and JAFFA's predicted gene fusion events",
+					"elements": [{
+						"type": "table",
+						"data": {
+							"url": "/fusion_api/fusion/get_external_database_statistics_details/DATABASES/false/",
+							"templates": [{
+								"template": "DATABASES",
+								"key": "databases"
+							}]
+						}
+					}]
+				}],
+				[{
+					"title": "Intersection of CCS with existing databases",
+					"subtitle": "This information is available only for FusionCatcher's events",
+					"width": "100",
+					"elements": [{
+							"type": "paragraph",
+							"data": {
+								"value": "Please select one or more databases:"
+							}
+						},
+						{
+							"type": "checkbox",
+							"subtype": "form",
+							"inline": true,
+							"label": "Databases",
+							"data": {
+								"values": [
+									{"id": "mitelman", "label": "<img width='80px' src='imgs/mitelman_logo.png' alt='mitelman'>", "checked": true},
+									{"id": "chimerdb2", "label": "<img width='80px' src='imgs/chimerdb.logo.png' alt='chimerdb'>", "checked": true},
+									{"id": "cosmic", "label": "<img flex flex-align='center center' width='50px' src='imgs/cosmic-icon.png' alt='cosmic'><br/><span>Cosmic</span>", "checked": true},
+									{"id": "tcga", "label": "<img width='80px' src='http://ciriellolab.org/images/tcga_logo.gif' alt='tcga'>", "checked": true},
+									{"id": "gtex", "label": "<img width='50px' src='http://phoenixrising.me/wp-content/uploads/gtex.jpg' alt='gtex'>", "checked": true},
+									{"id": "oncogene", "label": "oncogene", "checked": true},
+									{"id": "ticdb", "label": "<img width='80px' src='http://www.unav.es/genetica/logo.jpg' alt='ticdb'>", "checked": true}
+								],
+								"multiple": true,
+								"onClick": [{
+									"action": "write",
+									"key": "databases"
+								}]
+							}
+						},
+						{
+							"type": "venn",
+							"data": {
+								"url": "/fusion_api/fusion/get_external_database_statistics/DATABASES/true/",
+								"templates": [{
+									"template": "DATABASES",
+									"key": "databases"
+								}]
+							}
+						}
+					]
+				}],
+				[{
+					"title": "Number of fusion events contained in known databases (CCS)",
+					"subtitle": "This information is available only for FusionCatcher's events",
+					"elements": [{
+						"type": "table",
+						"data": {
+							"url": "/fusion_api/fusion/get_external_database_statistics_details/DATABASES/true/",
+							"templates": [{
+								"template": "DATABASES",
+								"key": "databases"
+							}]
+						}
+					}]
+				}],
+				[{
+					"title": "Distribution of predicted effects",
+					"subtitle": "This information is available only for FusionCatcher's events",
+					"width": "100",
+					"elements": [{
+						"type": "chart-bar",
+						"data": {
+							"url": "/fusion_api/fusion/get_distribution/PredictedEffect/Breakpoint/20/DESC/"
+						}
+					}]
+				}]
+			]
+		},
+		{
+			"pageID": "downloads",
+			"title": "Downloads",
+			"width": "100",
+			"long_description": "From this panel it is possible to download either the processed data for a specific cell line or the entire set of data by clicking on the 'DOWNLOAD ALL THE DATA (SINGLE TAR.GZ)' button. In particular, FusionCatcher (FC), Ericscript (ES), Tophat-Fusion (TF) and JAFFA (JA) columns represent the final filtered outputs from each software. The 'viruses information' column represents the integrated virus sequences detected by FC algorithm. Moreover, the outputs from Oncofuse are reported when availabe. Otherwise, an 'N/A' symbol represents missing information for Oncofuse for that particular software.",
+			"elements": [
+				[{
+					"title": "Download data",
+					"width": "100",
+					"elements": [
+						{
+							"type": "button",
+							"label": "Download RAW data (tar.gz) for database import",
+							"action": "link",
+							"data": {
+								"icon": "fa-download",
+								"modifiers": "fa-2x",
+								"url": "data/fusion_database_txt.tar.gz"
+							}
+						},
+						{
+							"type": "paginated-table",
+							"data": {
+								"url": "/fusion_api/fusion/download_data2/"
+						}
+					}]
+				}]
+			]
+		},
+		{
+			"pageID": "contact",
+			"title": "Contact",
+			"elements": [
+				[{
+					"title": "Contacts",
+					"width": "100",
+					"elements": [
+						{
+							"type": "image",
+							"data": {
+								"url": "https://pbs.twimg.com/profile_images/460769607859466241/qsExRCa9_400x400.png",
+								"width": "100px"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "Istituto di ricerche farmacologiche <a href='http://www.marionegri.it/'>Mario Negri</a> (IRCCS): Maddalena Fratelli, Marco Bolis"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "divider"
+						},
+						{
+							"type": "spacer"
+						},
+						{
+							"type": "image",
+							"data": {
+								"url": "http://www.procedamus.it/images/CINECA.jpg",
+								"width": "100px"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "Consorzio interuniversitario italiano <a href='https://www.cineca.it'>CINECA</a>: Giovanni Chillemi, Tiziana Castrignanò, Silvia Gioiosa, Tiziano Flati"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "spacer"
+						},
+						{
+							"type": "image",
+							"data": {
+								"url": "https://www.cnr.it/it/istituto/015/logo",
+								"width": "100px"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "Istituto di Biomembrane, Bioenergetica e Biotecnologie Molecolari (IBIOM) <a href='https://www.cnr.it/it/istituto/015/istituto-di-biomembrane-bioenergetica-e-biotecnologie-molecolari-ibiom'>IBIOM</a>: Silvia Gioiosa, Tiziano Flati"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "spacer"
+						},
+						{
+							"type": "divider"
+						},
+						{
+							"type": "spacer"
+						},
+						{
+							"type": "image",
+							"data": {
+								"url": "https://pbs.twimg.com/profile_images/562670583247142913/vKb9fikU.png",
+								"width": "100px"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<a href='http://www.di.uniroma1.it/'>Dipartimento di Informatica</a>, Facoltà d'Ingegneria dell'Informazione, informatica e statistica, Sapienza Università di Roma: Annalisa Massini"
+							},
+							"inline": "true"
+						}
+					]
+				}]
+			]
+		},
+		{
+			"pageID": "help",
+			"title": "Help",
+			"elements": [
+				[{
+					"title": "Help",
+					"width": "100",
+					"elements": [{
+							"type": "icon",
+							"data": {
+								"icon": "fa-question-circle",
+								"modifiers": "fa-2x",
+								"color": "orange"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<b>What is LiGeA database portal?</b>"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "LiGeA database Portal is an integrated and dynamical resource which allows to query a database of somatic fusion genes events detected by analysing 935 paired-end RNA-seq experiments exerted on human tumor cell lines (obtained from The Cancer Cell Line Encyclopedia - CCLE repository, <a target='_blank' href='https://portals.broadinstitute.org/ccle/home'>https://portals.broadinstitute.org/ccle/home</a>). "
+							}
+						},
+						{
+							"type": "icon",
+							"data": {
+								"icon": "fa-question-circle",
+								"modifiers": "fa-2x",
+								"color": "orange"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<b>How many algorithms have been used to predict the fusion events?</b>"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "The analysis has been carried out by using four different fusion detection algorithms: FusionCatcher, EricScript,Tophat-Fusion and JAFFA. The database stores and systematizes all the results obtained from each single method sorted by the number of the combinations of the methods supporting the prediction."
+							}
+						},
+						{
+							"type": "icon",
+							"data": {
+								"icon": "fa-question-circle",
+								"modifiers": "fa-2x",
+								"color": "orange"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<b>Why are some sections specific only to FusionCatcher Algorithm?</b>"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "As you may imagine, besides the names and the genomic coordinates of the genes involved in the fusion events, the output of each of the used algorithms is different in terms of additional information. FusionCatcher produces a great amount of useful features, not present in EricScript or Tophat-Fusion predictions, which have been inserted into the database in order to offer a complete set of data. An example of these additional set of information are the exogenous viruses integrated into the host genomes."
+							}
+						},
+						{
+							"type": "icon",
+							"data": {
+								"icon": "fa-question-circle",
+								"modifiers": "fa-2x",
+								"color": "orange"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<b>Is the database a mere collection of in-silico fusion events predictions?</b>"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "No, it isn’t. Indeed, LiGeA database Portal has been integrated with other useful external resources in order to offer a carefully-curated web resource. Here is a short list of the added features:"
+							}
+						},
+						{
+							"type": "bullet_list",
+							"data": [
+								"Whenever the gene fusion couple has already been experimentally validated, an external link to COSMIC database (<a target='_blank' href='http://cancer.sanger.ac.uk/cosmic'>http://cancer.sanger.ac.uk/cosmic</a>, a catalog of somatic mutations in cancer) is shown;",
+								"Whether one of the two genes involved in the fusion event has been already described to be causally implicated in cancer, an external link to the Cancer Gene Census is provided (<a target='_blank' href='http://cancer.sanger.ac.uk/census'>http://cancer.sanger.ac.uk/census</a>);",
+								"A colourful signature has been added to tag the FusionCatcher predictions as 'validated truly positive couple' (green circle), 'validated false positive couple' (red circle) and 'false positive couple with medium probability' (orange circles);",
+								"A functional prediction score (oncogenic potential, i.e. the probability of being 'driver' events in carcinogenesis) obtained by extensively running the Oncofuse software (<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>http://www.unav.es/genetica/oncofuse.html</a>), is reported as additional tag to each of the three kinds of results."
+							]
+						},
+						{
+							"type": "icon",
+							"data": {
+								"icon": "fa-question-circle",
+								"modifiers": "fa-2x",
+								"color": "orange"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<b>If I want to make a 'Search for fusion information', what is the meaning of the values under 'Fusion decription' and 'Predicted effects' menus?</b>"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "Since the values reported in the final output are inherited from FusionCatcher algorithm, we encourage the users to view this section of FC manual <a href='https://github.com/ndaniel/fusioncatcher/blob/master/doc/manual.md#62---output-data-output-data' target='_blank'>https://github.com/ndaniel/fusioncatcher/blob/master/doc/manual.md#62---output-data-output-data</a> in order to obtain a full description of all of the tags."
+							}
+						},
+						{
+							"type": "icon",
+							"data": {
+								"icon": "fa-exclamation-circle",
+								"modifiers": "fa-2x",
+								"color": "orange"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<b>List of abbreviations</b>"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "FC: FusionCatcher; ES: EricScript; TF: Tophat-Fusion; JA: JAFFA; pGFE: predicted Gene Fusion Event; CCS: Consensus Call Set."
+							}
+						},
+						{
+							"type": "icon",
+							"data": {
+								"icon": "fa-question-circle",
+								"modifiers": "fa-2x",
+								"color": "orange"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<b>How do I access LiGeA database portal?</b>"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "The access to LiGeA database portal is public and free."
+							}
+						},
+						{
+							"type": "icon",
+							"data": {
+								"icon": "fa-question-circle",
+								"modifiers": "fa-2x",
+								"color": "orange"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<b>How do I cite LiGeA database portal?</b>"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "We have no published paper right now."
+							}
+						},
+						{
+							"type": "icon",
+							"data": {
+								"icon": "fa-question-circle",
+								"modifiers": "fa-2x",
+								"color": "orange"
+							}
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "<b>How do I ask questions?</b>"
+							},
+							"inline": "true"
+						},
+						{
+							"type": "paragraph",
+							"data": {
+								"value": "Please send an email to <a href='mailto:hpc-spes@cineca.it'>hpc-spes AT cineca.it</a>."
+							}
+						}
+					]
+				}]
+			]
+		},
+		{
+			"pageID": "search_for_disease",
+			"title": "Search by Disease",
+			"elements": [
+				[
+					{
+						"title": "Search",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": "undefined"
+							}
+						],
+						"elements": [
+							{
+								"label": "Disease",
+								"key": "disease",
+								"layout": "row",
+								"type": "autocomplete",
+								"subtype": "form",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/diseases_simple/"
+								}
+							},
+							{
+								"label": "Show results supported by at least",
+								"key": "num_algorithms",
+								"layout": "column",
+								"group_id": "num_algorithms",
+								"type": "radio",
+								"subtype": "form",
+								"data": {
+									"value": 3,
+									"values": [{
+										"label": "4 algorithms",
+										"value": 4,
+										"selected": true
+									},{
+										"label": "3 algorithms",
+										"value": 3
+									}, {
+										"label": "2 algorithms",
+										"value": 2
+									}, {
+										"label": "1 algorithm",
+										"value": 1
+									}]
+								}
+							},
+							{
+								"label": "Search among novel events only",
+								"type": "checkbox",
+								"subtype": "form",
+								"exclusive": true,
+								"key": "novel",
+								"layout": "row",
+								"data": {
+									"multiple": true,
+									"values": [{
+										"label": "strict mode (excludes ambiguously-tagged events)",
+										"value": "strict"
+									}, {
+										"label": "relaxed mode (includes ambiguously-tagged events)",
+										"value": "relaxed"
+									}]
+								}
+							},
+							{
+								"type": "submit",
+								"key": "submit",
+								"layout": "row",
+								"subtype": "form",
+								"label": "Submit",
+								"action": "nothing",
+								"data": {
+									"source": "search_for_disease",
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": true
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Summary of your search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "form_summary",
+								"data": {
+									"source": "search_for_disease"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "button",
+								"label": "Refine your search",
+								"data": {
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": "undefined"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Results",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "NUM_RESULTS result(s) found",
+									"templates": [
+										{
+											"template": "NUM_RESULTS",
+											"key": "num_results"
+										}
+									]
+								}
+							},
+							{
+								"type": "button",
+								"label": "Download results",
+								"data": {
+									"onClick": "/fusion_api/fusion/download_disease/",
+									"icon": "fa-table",
+									"modifiers": "fa-2x",
+									"action": "send",
+									"source": "search_for_disease"
+								}
+							},
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "paginated-table",
+								"data": {
+									"url": "/fusion_api/fusion/disease/",
+									"source": "search_for_disease",
+									"onReceive": [{
+										"action": "write",
+										"key": "num_results"
+									}]
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "search_for_cell_line",
+			"title": "Search by Cell line",
+			"elements": [
+				[
+					{
+						"title": "Search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": "undefined"
+							}
+						],
+						"elements": [
+							{
+								"label": "Cell line",
+								"subtype": "form",
+								"layout": "row",
+								"key": "cell_line",
+								"type": "autocomplete",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/cell_lines_simple/"
+								}
+							},
+							{
+								"label": "Show results supported by at least",
+								"key": "num_algorithms",
+								"layout": "column",
+								"group_id": "num_algorithms",
+								"type": "radio",
+								"subtype": "form",
+								"data": {
+									"value": 3,
+									"values": [{
+										"label": "4 algorithms",
+										"value": 4
+									},{
+										"label": "3 algorithms",
+										"value": 3
+									}, {
+										"label": "2 algorithms",
+										"value": 2
+									}, {
+										"label": "1 algorithm",
+										"value": 1
+									}]
+								}
+							},
+							{
+								"label": "Search among novel events only",
+								"type": "checkbox",
+								"layout": "row",
+								"subtype": "form",
+								"exclusive": true,
+								"key": "novel",
+								"data": {
+									"multiple": true,
+									"values": [{
+										"label": "strict mode (excludes ambiguously-tagged events)",
+										"value": "strict"
+									}, {
+										"label": "relaxed mode (includes ambiguously-tagged events)",
+										"value": "relaxed"
+									}]
+								}
+							},
+							{
+								"type": "submit",
+								"key": "submit",
+								"layout": "row",
+								"subtype": "form",
+								"label": "Submit",
+								"action": "nothing",
+								"data": {
+									"source": "search_for_cell_line",
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": true
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Summary of your search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "form_summary",
+								"data": {
+									"source": "search_for_cell_line"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "button",
+								"label": "Refine your search",
+								"data": {
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": "undefined"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Results",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "NUM_RESULTS result(s) found",
+									"templates": [
+										{
+											"template": "NUM_RESULTS",
+											"key": "num_results"
+										}
+									]
+								}
+							},
+							{
+								"type": "button",
+								"label": "Download results",
+								"data": {
+									"onClick": "/fusion_api/fusion/download_cell_lines/",
+									"icon": "fa-table",
+									"modifiers": "fa-2x",
+									"action": "send",
+									"source": "search_for_cell_line"
+								}
+							},
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "paginated-table",
+								"data": {
+									"url": "/fusion_api/fusion/cell_line2/",
+									"source": "search_for_cell_line",
+									"onReceive": [{
+										"action": "write",
+										"key": "num_results"
+									}]
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "search_for_chromosome",
+			"title": "Search by Chromosome",
+			"elements": [
+				[
+					{
+						"title": "Search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": "undefined"
+							}
+						],
+						"elements": [
+							{
+								"label": "5' Chromosome",
+								"key": "chrom1",
+								"layout": "row",
+								"type": "select",
+								"subtype": "form",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/chromosomes/"
+								}
+							},
+							{
+								"label": "3' Chromosome",
+								"key": "chrom2",
+								"layout": "row",
+								"type": "select",
+								"subtype": "form",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/chromosomes/"
+								}
+							},
+							{
+								"label": "Cell line",
+								"key": "cell_line",
+								"layout": "row",
+								"type": "autocomplete",
+								"subtype": "form",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/cell_lines_simple/"
+								}
+							},
+							{
+								"label": "Show results supported by at least",
+								"key": "num_algorithms",
+								"layout": "column",
+								"group_id": "num_algorithms",
+								"type": "radio",
+								"subtype": "form",
+								"data": {
+									"value": 3,
+									"values": [{
+										"label": "4 algorithms",
+										"value": 4,
+										"selected": true
+									},{
+										"label": "3 algorithms",
+										"value": 3
+									}, {
+										"label": "2 algorithms",
+										"value": 2
+									}, {
+										"label": "1 algorithm",
+										"value": 1
+									}]
+								}
+							},
+							{
+								"label": "Search among novel events only",
+								"type": "checkbox",
+								"layout": "row",
+								"subtype": "form",
+								"exclusive": true,
+								"key": "novel",
+								"data": {
+									"multiple": true,
+									"values": [{
+										"label": "strict mode (excludes ambiguously-tagged events)",
+										"value": "strict"										
+									}, {
+										"label": "relaxed mode (includes ambiguously-tagged events)",
+										"value": "relaxed"
+									}]
+								}
+							},
+							{
+								"type": "submit",
+								"key": "submit",
+								"layout": "column",
+								"subtype": "form",
+								"label": "Submit",
+								"action": "nothing",
+								"data": {
+									"source": "search_for_chromosome",
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": true
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Summary of your search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "form_summary",
+								"data": {
+									"source": "search_for_chromosome"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "button",
+								"label": "Refine your search",
+								"data": {
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": "undefined"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Results",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "NUM_RESULTS result(s) found",
+									"templates": [
+										{
+											"template": "NUM_RESULTS",
+											"key": "num_results"
+										}
+									]
+								}
+							},
+							{
+								"type": "button",
+								"label": "Download results",
+								"data": {
+									"onClick": "/fusion_api/fusion/download_chromosomes/",
+									"icon": "fa-table",
+									"modifiers": "fa-2x",
+									"action": "send",
+									"source": "search_for_chromosome"
+								}
+							},
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "paginated-table",
+								"data": {
+									"url": "/fusion_api/fusion/chromosomes2/",
+									"source": "search_for_chromosome",
+									"onReceive": [{
+										"action": "write",
+										"key": "num_results"
+									}]
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "search_for_gene",
+			"title": "Search by Gene",
+			"tooltip": "<b>Two Examples of couple of GENE IDs for genes involved in fusion events</b>.<br/><br/>Symbol or EnsembleID of 5' gene: BCR<br/>Symbol or EnsembleID of 3' gene: ABL1<br/><br/>Symbol or EnsembleID of 5' gene: PML<br/>Symbol or EnsembleID of 3' gene: RARA",
+			"elements": [
+				[
+					{
+						"title": "Search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": "undefined"
+							}
+						],
+						"elements": [
+							{
+								"label": "Symbol or EnsembleID of 5' gene",
+								"type": "autocomplete",
+								"subtype": "form",
+								"layout": "row",
+								"key": "gene_1",
+								"placeholder": "DHRS1 or ENSG00000157379",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/genes_five_prime/"
+								}
+							}, {
+								"label": "Symbol or EnsembleID of 3' gene",
+								"type": "autocomplete",
+								"subtype": "form",
+								"layout": "row",
+								"key": "gene_2",
+								"placeholder": "RABGGTA or ENSG00000100949",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/genes_three_prime/"
+								}
+							},
+							{
+								"label": "Cell line",
+								"key": "cell_line",
+								"layout": "row",
+								"type": "autocomplete",
+								"subtype": "form",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/cell_lines_simple/"
+								}
+							},
+							{
+								"label": "Show results supported by at least",
+								"key": "num_algorithms",
+								"group_id": "num_algorithms",
+								"layout": "column",
+								"type": "radio",
+								"subtype": "form",
+								"data": {
+									"value": 3,
+									"values": [{
+										"label": "4 algorithms",
+										"value": 4,
+										"selected": true
+									},{
+										"label": "3 algorithms",
+										"value": 3
+									}, {
+										"label": "2 algorithms",
+										"value": 2
+									}, {
+										"label": "1 algorithm",
+										"value": 1
+									}]
+								}
+							},
+							{
+								"label": "Search among novel events only",
+								"type": "checkbox",
+								"layout": "row",
+								"subtype": "form",
+								"exclusive": true,
+								"key": "novel",
+								"data": {
+									"multiple": true,
+									"values": [{
+										"label": "strict mode (excludes ambiguously-tagged events)",
+										"value": "strict"
+									}, {
+										"label": "relaxed mode (includes ambiguously-tagged events)",
+										"value": "relaxed"
+									}]
+								}
+							},
+							{
+								"type": "submit",
+								"key": "submit",
+								"layout": "row",
+								"subtype": "form",
+								"label": "Submit",
+								"action": "nothing",
+								"data": {
+									"source": "search_for_gene",
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": true
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Summary of your search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "form_summary",
+								"data": {
+									"source": "search_for_gene"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "button",
+								"label": "Refine your search",
+								"data": {
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": "undefined"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Results",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "NUM_RESULTS result(s) found",
+									"templates": [
+										{
+											"template": "NUM_RESULTS",
+											"key": "num_results"
+										}
+									]
+								}
+							},
+							{
+								"type": "button",
+								"label": "Download results",
+								"data": {
+									"onClick": "/fusion_api/fusion/download_genes/",
+									"icon": "fa-table",
+									"modifiers": "fa-2x",
+									"action": "send",
+									"source": "search_for_gene"
+								}
+							},
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "paginated-table",
+								"data": {
+									"url": "/fusion_api/fusion/gene2/",
+									"source": "search_for_gene",
+									"onReceive": [{
+										"action": "write",
+										"key": "num_results"
+									}]
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "search_for_transcript",
+			"title": "Search by Transcript",
+			"tooltip": "<b>Two Examples of couple of transcript IDs for transcripts involved in fusion events</b>.<br/><br/>Symbol or ENST of 5' transcript: ENST00000483497<br/>Symbol or ENST of 3' transcript: ENST00000318560<br/><br/>Symbol or ENST of 5' transcript: ENST00000268059<br/>Symbol or ENST of 3' transcript: ENST00000394089",
+			"width": "100",
+			"elements": [
+				[
+					{
+						"title": "Search",
+						"width": "50",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": "undefined"
+							}
+						],
+						"elements": [
+							{
+								"label": "Transcript EnsembleID of 5' transcript",
+								"type": "autocomplete",
+								"subtype": "form",
+								"layout": "row",
+								"key": "transcript_1",
+								"placeholder": "ENST00000371998",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/transcripts_five_prime/"
+								}
+							}, {
+								"label": "Transcript EnsembleID of 3' transcript",
+								"type": "autocomplete",
+								"subtype": "form",
+								"layout": "row",
+								"key": "transcript_2",
+								"placeholder": "ENST00000302326",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/transcripts_three_prime/"
+								}
+							},
+							{
+								"label": "Cell line",
+								"key": "cell_line",
+								"type": "autocomplete",
+								"layout": "row",
+								"subtype": "form",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/cell_lines_simple/"
+								}
+							},
+							{
+								"label": "Show results supported by at least",
+								"key": "num_algorithms",
+								"group_id": "num_algorithms",
+								"layout": "column",
+								"type": "radio",
+								"subtype": "form",
+								"data": {
+									"value": 3,
+									"values": [{
+										"label": "4 algorithms",
+										"value": 4,
+										"selected": true
+									},{
+										"label": "3 algorithms",
+										"value": 3
+									}, {
+										"label": "2 algorithms",
+										"value": 2
+									}, {
+										"label": "1 algorithm",
+										"value": 1
+									}]
+								}
+							},
+							{
+								"label": "Search among novel events only",
+								"type": "checkbox",
+								"subtype": "form",
+								"layout": "row",
+								"exclusive": true,
+								"key": "novel",
+								"data": {
+									"multiple": true,
+									"values": [{
+										"label": "strict mode (excludes ambiguously-tagged events)",
+										"value": "strict"
+									}, {
+										"label": "relaxed mode (includes ambiguously-tagged events)",
+										"value": "relaxed"
+									}]
+								}
+							},
+							{
+								"type": "submit",
+								"key": "submit",
+								"layout": "row",
+								"subtype": "form",
+								"label": "Submit",
+								"action": "nothing",
+								"data": {
+									"source": "search_for_transcript",
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": true
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Notes",
+						"width": "50",
+						"elements": [{
+								"type": "icon",
+								"data": {
+									"icon": "fa-exclamation-triangle",
+									"color": "orange"
+								}
+							},
+							{
+								"type": "paragraph",
+								"inline": "true",
+								"data": {
+									"value": "This information is available only for those events detected by FusionCatcher."
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Summary of your search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "form_summary",
+								"data": {
+									"source": "search_for_transcript"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "button",
+								"label": "Refine your search",
+								"data": {
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": "undefined"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Results",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "NUM_RESULTS result(s) found",
+									"templates": [
+										{
+											"template": "NUM_RESULTS",
+											"key": "num_results"
+										}
+									]
+								}
+							},
+							{
+								"type": "button",
+								"label": "Download results",
+								"data": {
+									"onClick": "/fusion_api/fusion/download_transcripts/",
+									"icon": "fa-table",
+									"modifiers": "fa-2x",
+									"action": "send",
+									"source": "search_for_transcript"
+								}
+							},
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "paginated-table",
+								"data": {
+									"url": "/fusion_api/fusion/transcript2/",
+									"source": "search_for_transcript",
+									"onReceive": [{
+										"action": "write",
+										"key": "num_results"
+									}]
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "search_for_exon",
+			"title": "Search by Exon",
+			"tooltip": "<b>An example of two Ensemble IDs of exons involved in fusion events</b>.<br/><br/>Ensemble ID of 5' exon: ENSE00001276841<br/>Ensemble ID of 3' exon: ENSE00003520838<br/>",
+			"elements": [
+				[
+					{
+						"title": "Search",
+						"width": "50",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": "undefined"
+							}
+						],
+						"elements": [
+							{
+								"label": "EnsembleID of 5' exon",
+								"type": "autocomplete",
+								"layout": "row",
+								"subtype": "form",
+								"key": "exon_1",
+								"placeholder": "ENSE00001678826",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/exons_five_prime/"
+								}
+							}, {
+								"label": "EnsembleID of 3' exon",
+								"type": "autocomplete",
+								"layout": "row",
+								"subtype": "form",
+								"key": "exon_2",
+								"placeholder": "ENSE00000991541",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/exons_three_prime/"
+								}
+							}, {
+								"label": "Cell line",
+								"key": "cell_line",
+								"layout": "row",
+								"type": "autocomplete",
+								"subtype": "form",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/cell_lines_simple/"
+								}
+							},
+							{
+								"label": "Show results supported by at least",
+								"key": "num_algorithms",
+								"layout": "column",
+								"group_id": "num_algorithms",
+								"type": "radio",
+								"subtype": "form",
+								"data": {
+									"value": 3,
+									"values": [{
+										"label": "4 algorithms",
+										"value": 4,
+										"selected": true
+									},{
+										"label": "3 algorithms",
+										"value": 3
+									}, {
+										"label": "2 algorithms",
+										"value": 2
+									}, {
+										"label": "1 algorithm",
+										"value": 1
+									}]
+								}
+							},
+							{
+								"label": "Search among novel events only",
+								"type": "checkbox",
+								"layout": "row",
+								"subtype": "form",
+								"exclusive": true,
+								"key": "novel",
+								"data": {
+									"multiple": true,
+									"values": [{
+										"label": "strict mode (excludes ambiguously-tagged events)",
+										"value": "strict"
+									}, {
+										"label": "relaxed mode (includes ambiguously-tagged events)",
+										"value": "relaxed"
+									}]
+								}
+							},
+							{
+								"type": "submit",
+								"key": "submit",
+								"layout": "row",
+								"subtype": "form",
+								"label": "Submit",
+								"action": "nothing",
+								"data": {
+									"source": "search_for_exon",
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": true
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Notes",
+						"width": "50",
+						"elements": [{
+								"type": "icon",
+								"data": {
+									"icon": "fa-exclamation-triangle",
+									"color": "orange"
+								}
+							},
+							{
+								"type": "paragraph",
+								"inline": "true",
+								"data": {
+									"value": "This information is available only for those events detected by FusionCatcher."
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Summary of your search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "form_summary",
+								"data": {
+									"source": "search_for_exon"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "button",
+								"label": "Refine your search",
+								"data": {
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": "undefined"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Results",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "NUM_RESULTS result(s) found",
+									"templates": [
+										{
+											"template": "NUM_RESULTS",
+											"key": "num_results"
+										}
+									]
+								}
+							},
+							{
+								"type": "button",
+								"label": "Download results",
+								"data": {
+									"onClick": "/fusion_api/fusion/download_exons/",
+									"icon": "fa-table",
+									"modifiers": "fa-2x",
+									"action": "send",
+									"source": "search_for_exon"
+								}
+							},
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "paginated-table",
+								"data": {
+									"url": "/fusion_api/fusion/exon2/",
+									"source": "search_for_exon",
+									"onReceive": [{
+										"action": "write",
+										"key": "num_results"
+									}]
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "search_for_fusion",
+			"title": "Search by Fusion information",
+			"elements": [
+				[
+					{
+						"title": "Search",
+						"width": "50",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": "undefined"
+							}
+						],
+						"elements": [
+							{
+								"label": "Cell line",
+								"type": "autocomplete",
+								"layout": "row",
+								"subtype": "form",
+								"key": "cell_line",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/cell_lines_simple/"
+								}
+							}, {
+								"label": "Fusion description",
+								"type": "select",
+								"layout": "row",
+								"subtype": "form",
+								"key": "fusion_descriptions_raw",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/fusion_descriptions/"
+								}
+							}, {
+								"label": "Predicted Effects",
+								"type": "select",
+								"subtype": "form",
+								"layout": "row",
+								"key": "predicted_effects_raw",
+								"multiple": true,
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/predicted_effects/"
+								}
+							},
+							{
+								"label": "Search among novel events only",
+								"type": "checkbox",
+								"subtype": "form",
+								"layout": "column",
+								"exclusive": true,
+								"key": "novel",
+								"data": {
+									"multiple": true,
+									"values": [{
+										"label": "strict mode (excludes ambiguously-tagged events)",
+										"value": "strict"
+									}, {
+										"label": "relaxed mode (includes ambiguously-tagged events)",
+										"value": "relaxed"
+									}]
+								}
+							},
+							{
+								"type": "submit",
+								"key": "submit",
+								"layout": "row",
+								"subtype": "form",
+								"label": "Submit",
+								"action": "nothing",
+								"data": {
+									"source": "search_for_fusion",
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": true
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Notes",
+						"width": "50",
+						"elements": [{
+								"type": "icon",
+								"data": {
+									"icon": "fa-exclamation-triangle",
+									"color": "orange",
+									"title": "warning"
+								}
+							},
+							{
+								"type": "paragraph",
+								"inline": "true",
+								"data": {
+									"value": "This information is available only for those events detected by FusionCatcher."
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Summary of your search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "form_summary",
+								"data": {
+									"source": "search_for_fusion"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "button",
+								"label": "Refine your search",
+								"data": {
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": "undefined"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Results",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "NUM_RESULTS result(s) found",
+									"templates": [
+										{
+											"template": "NUM_RESULTS",
+											"key": "num_results"
+										}
+									]
+								}
+							},
+							{
+								"type": "button",
+								"label": "Download results",
+								"data": {
+									"onClick": "/fusion_api/fusion/download_fusions/",
+									"icon": "fa-table",
+									"modifiers": "fa-2x",
+									"action": "send",
+									"source": "search_for_fusion"
+								}
+							},
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "paginated-table",
+								"data": {
+									"url": "/fusion_api/fusion/fusions2/",
+									"source": "search_for_fusion",
+									"onReceive": [{
+										"action": "write",
+										"key": "num_results"
+									}]
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "search_for_algorithm",
+			"title": "Search by Algorithm",
+			"elements":[
+				[
+					{
+						"title": "Search",
+						"width": "50",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": "undefined"
+							}
+						],
+						"elements": [
+							{
+								"label": "Cell line",
+								"type": "autocomplete",
+								"subtype": "form",
+								"layout": "row",
+								"key": "cell_line",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/cell_lines_simple/"
+								}
+							}, {
+								"label": "Algorithm",
+								"type": "checkbox",
+								"subtype": "form",
+								"layout": "row",
+								"key": "algorithms",
+								"required": "true",
+								"data": {
+									"multiple": true,
+									"url": "/fusion_api/fusion/algorithms/"
+								}
+							},
+							{
+								"label": "Show only events supported <i>exclusively</i> by the selected algorithms",
+								"type": "checkbox",
+								"subtype": "form",
+								"layout": "column",
+								"key": "strict",
+								"required": "true"
+							},
+							{
+								"label": "Search among novel events only",
+								"type": "checkbox",
+								"subtype": "form",
+								"layout": "row",
+								"exclusive": true,
+								"key": "novel",
+								"data": {
+									"multiple": true,
+									"values": [{
+										"label": "strict mode (excludes ambiguously-tagged events)",
+										"value": "strict"
+									}, {
+										"label": "relaxed mode (includes ambiguously-tagged events)",
+										"value": "relaxed"
+									}]
+								}
+							},
+							{
+								"type": "submit",
+								"key": "submit",
+								"layout": "row",
+								"subtype": "form",
+								"label": "Submit",
+								"action": "nothing",
+								"data": {
+									"source": "search_for_algorithm",
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": true
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Summary of your search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "form_summary",
+								"data": {
+									"source": "search_for_algorithm"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "button",
+								"label": "Refine your search",
+								"data": {
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": "undefined"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Results",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "NUM_RESULTS result(s) found",
+									"templates": [
+										{
+											"template": "NUM_RESULTS",
+											"key": "num_results"
+										}
+									]
+								}
+							},
+							{
+								"type": "button",
+								"label": "Download results",
+								"data": {
+									"onClick": "/fusion_api/fusion/download_algorithms/",
+									"icon": "fa-table",
+									"modifiers": "fa-2x",
+									"action": "send",
+									"source": "search_for_algorithm"
+								}
+							},
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "paginated-table",
+								"data": {
+									"url": "/fusion_api/fusion/search_by_algorithm/",
+									"source": "search_for_algorithm",
+									"onReceive": [{
+										"action": "write",
+										"key": "num_results"
+									}]
+								}
+							}
+						]
+					}
+				]
+			]
+		},
+		{
+			"pageID": "search_for_viruses",
+			"title": "Search Viruses",
+			"elements": [
+				[
+					{
+						"title": "Search",
+						"width": "70",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": "undefined"
+							}
+						],
+						"elements": [
+							{
+								"label": "Virus name, GI id or NC ID",
+								"type": "autocomplete",
+								"subtype": "form",
+								"layout": "column",
+								"key": "virus",
+								"placeholder": "Moloney murine leukemia virus, complete genome, 9626958 or NC_001501.1",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/virus/"
+								}
+							},
+							{
+								"label": "Cell line",
+								"type": "autocomplete",
+								"subtype": "form",
+								"layout": "row",
+								"key": "cell_line",
+								"required": "true",
+								"data": {
+									"url": "/fusion_api/fusion/cell_lines_simple/"
+								}
+							},
+							{
+								"type": "submit",
+								"layout": "row",
+								"key": "submit",
+								"subtype": "form",
+								"label": "Submit",
+								"action": "nothing",
+								"data": {
+									"source": "search_for_virus",
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": true
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"title": "Notes",
+						"width": "30",
+						"elements": [{
+								"type": "icon",
+								"data": {
+									"icon": "fa-exclamation-triangle",
+									"color": "orange",
+									"title": "warning"
+								}
+							},
+							{
+								"type": "paragraph",
+								"inline": "true",
+								"data": {
+									"value": "This information is available only for those events detected by FusionCatcher."
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Summary of your search",
+						"layout": "row",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "form_summary",
+								"data": {
+									"source": "search_for_viruses"
+								}
+							},
+							{
+								"type": "spacer"
+							},
+							{
+								"type": "button",
+								"label": "Refine your search",
+								"data": {
+									"onClick": [
+										{
+											"action": "write",
+											"key": "search_started",
+											"value": "undefined"
+										}
+									]
+								}
+							}
+						]
+					}
+				],
+				[
+					{
+						"title": "Results",
+						"show_conditions": [
+							{
+								"arg1": {"key": "search_started", "fx": "value"},
+								"op": "==",
+								"arg2": true
+							}
+						],
+						"elements": [
+							{
+								"type": "paragraph",
+								"data": {
+									"variable_value": "NUM_RESULTS result(s) found",
+									"templates": [
+										{
+											"template": "NUM_RESULTS",
+											"key": "num_results"
+										}
+									]
+								}
+							},
+							{
+								"type": "button",
+								"label": "Download results",
+								"data": {
+									"onClick": "/fusion_api/fusion/download_viruses/",
+									"icon": "fa-table",
+									"modifiers": "fa-2x",
+									"action": "send",
+									"source": "search_for_viruses"
+								}
+							},
+							{
+								"type": "button",
+								"action": "window",
+								"label": "See legend",
+								"data": {
+									"icon": "fa-info-circle",
+									"modifiers": "fa-2x"
+								},
+								"card": {
+									"title": "Legend",
+									"width": "100",
+									"elements": [{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "green",
+												"title": "True positive"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "True positive"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "orange",
+												"title": "False positive with medium probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with medium probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "red",
+												"title": "False positive with high probability"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "False positive with high probability"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "icon",
+											"data": {
+												"icon": "fa-circle",
+												"color": "grey",
+												"title": "Ambiguous event because tagged with both positive and negative evidences"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Ambiguous event because tagged with both positive and negative evidences"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/cosmic_logo.png"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='blank' href='http://cancer.sanger.ac.uk/cosmic/classic/'>COSMIC</a> curated genes & fusions"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/census-icon.png",
+												"width": "35px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene in <a target='blank' href='http://cancer.sanger.ac.uk/census'>Gene Census</a> repository of genes for which mutations have been causally implicated in cancer"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/oncofuse-icon.png",
+												"width": "80px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a target='_blank' href='http://www.unav.es/genetica/oncofuse.html'>Oncofuse</a> is a naive bayesian classifier that tries to validate in-silico the predictions made by other fusion detection softwares."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/illumina.body.map.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-513/'>Illumina Body Map 2.0</a>: these data consist of 16 RNA samples from 16 different organs from healthy people. If a candidate couple falls into this list, it is tagged as known false positive fusion genes"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://www.unav.es/genetica/logo.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.unav.es/genetica/TICdb/'>TICdb</a>: a database of 1374 Translocation breakpoints found in human tumors, involving 431 different genes."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/chimerdb.logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://203.255.191.229:8080/chimerdbv31/mindex.cdb'>ChimerDB</a>: Literature-based annotation"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://cancer.sanger.ac.uk/images/domain_logos/cell_lines_domain_logo_60x60.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://cancer.sanger.ac.uk/cell_lines'>Cell lines</a>: known fusion gene from paper: C. Klijn et al., A comprehensive transcriptional portrait of human cancer cell lines, Nature Biotechnology, Dec. 2014, DOI:10.1038/nbt.3080"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://www.genome.gov/images/content/1000genomes.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='http://www.internationalgenome.org/'>1000 genomes</a>: fusion gene has been seen in a healthy sample. It has been found in RNA-seq data from some samples from 1000 genomes project."
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://phoenixrising.me/wp-content/uploads/gtex.jpg",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://www.gtexportal.org/home/'>gtex</a>: fusion gene has been seen in a healthy sample. It has been found in GTEx database of healthy tissues"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "https://learn.nlm.nih.gov//images/pubmed_logo_large.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "known: fusion gene which has been previously reported or published in scientific articles/reports/books/abstracts/databases"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "http://ciriellolab.org/images/tcga_logo.gif",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "<a href='https://gdc.cancer.gov/'>TCGA</a>: known fusion gene from the TCGA database"
+											},
+											"inline": "true"
+										},
+										{
+											"type": "divider"
+										},
+										{
+											"type": "image",
+											"data": {
+												"url": "imgs/mitelman_logo.png",
+												"width": "50px"
+											}
+										},
+										{
+											"type": "paragraph",
+											"data": {
+												"value": "Known gene couple in <a target='_blank' href='https://cgap.nci.nih.gov/Genes'>Mitelman Database</a> of Chromosome Aberrations and Gene Fusions in Cancer"
+											},
+											"inline": "true"
+										}
+									]
+								}
+							},
+							{
+								"type": "paginated-table",
+								"data": {
+									"url": "/fusion_api/fusion/virus2/",
+									"source": "search_for_viruses",
+									"onReceive": [{
+										"action": "write",
+										"key": "num_results"
+									}]
+								}
+							}
+						]
+					}
+				]
+			]
+		}
+	]
+}
