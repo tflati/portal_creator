@@ -1,13 +1,13 @@
 #!/bin/bash
 
-DJANGO_PORT="7558"
-NEO4J_DATA_PORT="7559"
-NEO4J_BROWSER_PORT="7560"
-DJANGO_PROJECT_NAME="autism_mice"
-APACHE_PROJECT_NAME="autism-mice"
-BASEDIR="autism_stress_project"
+DJANGO_PORT="7565"
+NEO4J_DATA_PORT=""
+NEO4J_BROWSER_PORT=""
+DJANGO_PROJECT_NAME="radiation"
+APACHE_PROJECT_NAME="radiation"
+BASEDIR="$HOME/radiation_project"
 VERSION="3.4.0"
-GIT_URL="https://github.com/tflati/autism-mice.git"
+GIT_URL="https://github.com/tflati/radiation.git"
 
 if [ ! -d $BASEDIR ]
 then
@@ -22,16 +22,23 @@ function userOK {
 
 echo "Creating start and stop scripts..."
 userOK
-echo "
-PORT=$NEO4J_BROWSER_PORT
-sudo neo4j-community-$VERSION/bin/neo4j start
-python3.5 project/django_server/manage.py runserver \$PORT" >> start.sh
+truncate -s 0 start.sh
+if [ ! -z $NEO4J_DATA_PORT ]
+then
+	echo "PORT=$NEO4J_BROWSER_PORT 
+		sudo neo4j-community-$VERSION/bin/neo4j start " > start.sh
+fi
+
+echo "python3.5 project/django_server/manage.py runserver \$PORT" >> start.sh
 chmod +x start.sh
 
-echo "
-PORT=$NEO4J_BROWSER_PORT
-sudo neo4j-community-$VERSION/bin/neo4j stop
-ps x | grep "runserver" | grep \$PORT | sed 's/^ //g' | cut -d' ' -f 1 | xargs kill" >> stop.sh
+truncate -s 0 stop.sh
+if [ ! -z $NEO4J_DATA_PORT ]
+then
+	echo "PORT=$NEO4J_BROWSER_PORT
+		sudo neo4j-community-$VERSION/bin/neo4j stop " > stop.sh
+fi
+echo "ps x | grep \"runserver\" | grep \$PORT | sed 's/^ //g' | cut -d' ' -f 1 | xargs kill" >> stop.sh
 chmod +x stop.sh
 
 echo "Init git project"
@@ -99,9 +106,12 @@ echo "Creating new app called $DJANGO_PROJECT_NAME"
 userOK
 python3 manage.py startapp $DJANGO_PROJECT_NAME
 
-echo "Setting database port in django app ($NEO4J_DATA_PORT)"
-userOK
-echo -e "\n\nfrom neomodel import config\nconfig.DATABASE_URL = 'bolt://neo4j:password@localhost:$NEO4J_DATA_PORT'" >> django_server/settings.py
+if [ ! -z $NEO4J_DATA_PORT ]
+then
+	echo "Setting database port in django app ($NEO4J_DATA_PORT)"
+	userOK
+	echo -e "\n\nfrom neomodel import config\nconfig.DATABASE_URL = 'bolt://neo4j:password@localhost:$NEO4J_DATA_PORT'" >> django_server/settings.py
+fi
 
 # Disabling Django's CSRF view
 echo "Disabling Django's CSRF view"
@@ -162,6 +172,7 @@ userOK
 mkdir material
 mkdir material/imgs/
 mkdir material/downloads/
+cp config.json material
 for file in $(ls material/)
 do
 	echo "Creating symlink from engine/$file to material/$file"
