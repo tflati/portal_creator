@@ -11,6 +11,9 @@ GIT_URL="https://github.com/tflati/radiation.git"
 OPEN_BROWSER="no"
 
 SCRIPT_DIR=$(pwd)
+HTML_URL="http://localhost/$APACHE_PROJECT_NAME"
+NEO4J_URL="http://localhost:$NEO4J_BROWSER_PORT"
+DJANGO_API_URL="http://localhost/${DJANGO_PROJECT_NAME}_api/"
 
 if [ ! -d $BASEDIR ]
 then
@@ -215,12 +218,14 @@ then
 	echo "Checking Neo4j server is OK"
 	sudo neo4j-community-$VERSION/bin/neo4j status
 	
+	echo "****************** The NEO4J shell is now available at $NEO4J_URL"
+	
 	if [ "$OPEN_BROWSER" == "yes" ]
 	then
 		# Open Neo4j in browser
 		echo "Opening Neo4j browser at port $NEO4J_BROWSER_PORT"
 		userOK
-		xdg-open http://localhost:$NEO4J_BROWSER_PORT
+		xdg-open "$NEO4J_URL"
 	fi
 fi
 
@@ -228,11 +233,15 @@ echo "Launching project"
 userOK
 ./start.sh
 
+echo "****************** The DJANGO instance is now available at $DJANGO_API_URL"
+
+echo "****************** The HTML project is now available at $HTML_URL"
+
 if [ "$OPEN_BROWSER" == "yes" ]
 then
 	# Open project in browser
 	echo "Opening project in browser"
 	userOK
-	xdg-open http://localhost/$APACHE_PROJECT_NAME
+	xdg-open "$HTML_URL"
 fi
 
