@@ -11,9 +11,10 @@ GIT_URL="https://github.com/tflati/radiation.git"
 OPEN_BROWSER="no"
 
 SCRIPT_DIR=$(pwd)
-HTML_URL="http://localhost/$APACHE_PROJECT_NAME"
-NEO4J_URL="http://localhost:$NEO4J_BROWSER_PORT"
-DJANGO_API_URL="http://localhost/${DJANGO_PROJECT_NAME}_api/"
+HOST=$(hostname)
+HTML_URL="http://$HOST/$APACHE_PROJECT_NAME"
+NEO4J_URL="http://$HOST:$NEO4J_BROWSER_PORT"
+DJANGO_API_URL="http://$HOST/${DJANGO_PROJECT_NAME}_api/"
 
 if [ ! -d $BASEDIR ]
 then
