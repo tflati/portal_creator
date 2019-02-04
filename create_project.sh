@@ -220,7 +220,7 @@ then
 		# Open Neo4j in browser
 		echo "Opening Neo4j browser at port $NEO4J_BROWSER_PORT"
 		userOK
-		firefox localhost:$NEO4J_BROWSER_PORT
+		xdg-open http://localhost:$NEO4J_BROWSER_PORT
 	fi
 fi
 
@@ -233,6 +233,6 @@ then
 	# Open project in browser
 	echo "Opening project in browser"
 	userOK
-	firefox localhost/$APACHE_PROJECT_NAME
+	xdg-open http://localhost/$APACHE_PROJECT_NAME
 fi
 
