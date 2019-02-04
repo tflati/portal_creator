@@ -164,7 +164,8 @@ else
 	unzip engine.zip
 	mv tflati-interface-engine* engine
 	rm engine.zip
-	
+fi
+
 cd engine
 echo "Installing bower components..."
 userOK
