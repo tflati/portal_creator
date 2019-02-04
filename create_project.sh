@@ -8,6 +8,7 @@ APACHE_PROJECT_NAME="radiation"
 BASEDIR="$HOME/radiation_project"
 VERSION="3.4.0"
 GIT_URL="https://github.com/tflati/radiation.git"
+OPEN_BROWSER="no"
 
 SCRIPT_DIR=$(pwd)
 
@@ -31,7 +32,7 @@ then
 fi
 
 echo "PORT=$DJANGO_PORT" >> start.sh
-echo "python3.5 project/django_server/manage.py runserver \$PORT" >> start.sh
+echo "nohup python3.5 project/django_server/manage.py runserver \$PORT &" >> start.sh
 chmod +x start.sh
 
 truncate -s 0 stop.sh
@@ -214,18 +215,24 @@ then
 	echo "Checking Neo4j server is OK"
 	sudo neo4j-community-$VERSION/bin/neo4j status
 	
-	# Open Neo4j in browser
-	echo "Opening Neo4j browser at port $NEO4J_BROWSER_PORT"
-	userOK
-	firefox localhost:$NEO4J_BROWSER_PORT
+	if [ "$OPEN_BROWSER" == "yes" ]
+	then
+		# Open Neo4j in browser
+		echo "Opening Neo4j browser at port $NEO4J_BROWSER_PORT"
+		userOK
+		firefox localhost:$NEO4J_BROWSER_PORT
+	fi
 fi
 
-echo "Launching Django server on port $DJANGO_PORT"
+echo "Launching project"
 userOK
 ./start.sh
 
-# Open project in browser
-echo "Opening project in browser"
-userOK
-firefox localhost/$APACHE_PROJECT_NAME
+if [ "$OPEN_BROWSER" == "yes" ]
+then
+	# Open project in browser
+	echo "Opening project in browser"
+	userOK
+	firefox localhost/$APACHE_PROJECT_NAME
+fi
 
