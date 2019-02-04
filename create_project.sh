@@ -9,6 +9,8 @@ BASEDIR="$HOME/radiation_project"
 VERSION="3.4.0"
 GIT_URL="https://github.com/tflati/radiation.git"
 
+SCRIPT_DIR=$(pwd)
+
 if [ ! -d $BASEDIR ]
 then
 	mkdir $BASEDIR
@@ -25,30 +27,33 @@ userOK
 truncate -s 0 start.sh
 if [ ! -z $NEO4J_DATA_PORT ]
 then
-	echo "PORT=$NEO4J_BROWSER_PORT 
-		sudo neo4j-community-$VERSION/bin/neo4j start " > start.sh
+	echo "sudo neo4j-community-$VERSION/bin/neo4j start " >> start.sh
 fi
 
+echo "PORT=$DJANGO_PORT" >> start.sh
 echo "python3.5 project/django_server/manage.py runserver \$PORT" >> start.sh
 chmod +x start.sh
 
 truncate -s 0 stop.sh
 if [ ! -z $NEO4J_DATA_PORT ]
 then
-	echo "PORT=$NEO4J_BROWSER_PORT
-		sudo neo4j-community-$VERSION/bin/neo4j stop " > stop.sh
+	echo "sudo neo4j-community-$VERSION/bin/neo4j stop " >> stop.sh
 fi
+echo "PORT=$DJANGO_PORT" >> stop.sh
 echo "ps x | grep \"runserver\" | grep \$PORT | sed 's/^ //g' | cut -d' ' -f 1 | xargs kill" >> stop.sh
 chmod +x stop.sh
 
-echo "Init git project"
-userOK
-echo "# $DJANGO_PROJECT_NAME" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin $GIT_URL
-git push -u origin master
+if [ ! -z "$GIT_URL" ]
+then
+	echo "Init git project"
+	userOK
+	echo "# $DJANGO_PROJECT_NAME" >> README.md
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git remote add origin $GIT_URL
+	git push -u origin master
+fi
 
 if [ ! -z $NEO4J_DATA_PORT ]
 then
@@ -148,10 +153,18 @@ cd ..
 ######### HTML ENGINE ################
 ######################################
 
-echo "Cloning Interface-Engine project (as submodule)..."
-userOK
-git submodule add https://github.com/tflati/interface-engine.git engine
-
+if [ ! -z "$GIT_URL" ]
+then
+	echo "Cloning Interface-Engine project (as submodule)..."
+	userOK
+	git submodule add https://github.com/tflati/interface-engine.git engine
+else
+	echo "Cloning Interface-Engine project (as zip package)..."
+	wget https://github.com/tflati/interface-engine/zipball/master/ -O engine.zip
+	unzip engine.zip
+	mv tflati-interface-engine* engine
+	rm engine.zip
+	
 cd engine
 echo "Installing bower components..."
 userOK
@@ -164,6 +177,7 @@ userOK
 sudo ln -s `readlink -f engine/` /var/www/html/$APACHE_PROJECT_NAME
 
 sed -i 's/interface-engine/'$APACHE_PROJECT_NAME'/g' engine/index.html
+sed -i 's#<base href="/.*/">#<base href="/'$APACHE_PROJECT_NAME'/">#g' engine/index.html
 sed -i 's/interface-engine/'$APACHE_PROJECT_NAME'/g' engine/components/element/elementController.js
 sed -i 's/interface-engine/'$APACHE_PROJECT_NAME'/g' engine/components/table/my_custom_element/myCustomElement.js
 
@@ -172,7 +186,7 @@ userOK
 mkdir material
 mkdir material/imgs/
 mkdir material/downloads/
-cp config.json material
+cp $SCRIPT_DIR/config.json material
 for file in $(ls material/)
 do
 	echo "Creating symlink from engine/$file to material/$file"
@@ -207,7 +221,7 @@ fi
 
 echo "Launching Django server on port $DJANGO_PORT"
 userOK
-nohup python3 project/django_server/manage.py runserver $DJANGO_PORT &
+./start.sh
 
 # Open project in browser
 echo "Opening project in browser"
